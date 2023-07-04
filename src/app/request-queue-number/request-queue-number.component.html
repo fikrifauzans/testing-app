@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <span>Customer Queue Management</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+<div *ngIf="visitor">
+    <div id="barcode-queue" style="width: 350px;margin: auto;">
+        <div class="barcode-container">
+            <h2 style="text-align: center;">Rumah Sakit Bersama</h2>
+            <div style="border:solid black 1px;margin: auto; width: 350px;"></div>
+            <div style="text-align: center;">terimakasih bapak : <span>{{visitor.name}}</span></div>
+            <div style="text-align: center">nomor antrian anda :</div>
+            <h1 style="text-align: center;">A100</h1>
+            <div style="text-align: center">mohon menunggu</div>
+            <div style="text-align: center">29-11-1998</div>
+            <div style="border:solid black 1px;margin: auto; width: 350px;"></div>
+            <div style="margin-top: 10px;text-align: center;">Budayakan Antri Demi Kenyamanan</div>
+        </div>
+    </div>
+
+    <div class="container-btn" sty>
+        <div class="container-btn-gap">
+            <button mat-raised-button color="" (click)="backToList()">
+                Back
+            </button>
+            <button mat-raised-button color="primary" (click)="print()">
+                Cetak Struk
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!visitor">
+    <h1>Finding Visitor</h1>
+</div>

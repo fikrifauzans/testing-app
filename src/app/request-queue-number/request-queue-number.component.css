@@ -1,0 +1,17 @@
+.barcode-container {
+    margin: auto;
+    margin-top: 100px;
+    width: 350px;
+    text-align: center;
+}
+.container-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+}
+.container-btn-gap{
+    flex-direction: row;
+    display: flex;
+    gap: 10px;
+}

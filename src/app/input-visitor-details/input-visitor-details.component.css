@@ -1,0 +1,39 @@
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.row mat-form-field {
+    width: 100%;
+}
+
+.container-form {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+
+}
+
+.gender-container {
+    margin-top: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-bottom: 10px;
+}
+
+.row mat-radio-button {
+    margin-left: 10px;
+}
+
+.container-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-btn {
+    display: flex;
+    flex: row;
+    justify-content: end;
+}

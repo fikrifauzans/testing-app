@@ -1,0 +1,28 @@
+.content {
+    /* padding-top: 10px; */
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.row mat-form-field {
+    width: 100%;
+}
+
+.row mat-radio-button {
+    margin-left: 10px;
+}
+
+.gender-container {
+    margin-top: 10px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-bottom: 10px;
+}
+
+.action-btn button {
+    flex-direction: row;
+    flex: 1;
+}

@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "visitors": [
+   
+    
+    {
+      "name": "Fikri Fauzan",
+      "age": 23,
+      "date_of_birth": "2023-07-19T17:00:00.000Z",
+      "address": "awdawd",
+      "gender": "Male",
+      "section": "Doktor Umum",
+      "keluhan": "awdawd",
+      "id": 21
+    },
+    {
+      "name": "Fikri Fauzan ",
+      "age": 24,
+      "date_of_birth": "2023-07-11T17:00:00.000Z",
+      "address": "Jalan Jalan",
+      "gender": "Male",
+      "section": "Doktor Umum",
+      "keluhan": "Keluh Kesah Seperti Biasa",
+      "id": 22
+    },
+    {
+      "name": "Fikri Fauzan Santosa",
+      "age": 24,
+      "date_of_birth": "2023-07-23T17:00:00.000Z",
+      "address": "Jalan Dago Pojok",
+      "gender": "Male",
+      "section": "Doktor Umum",
+      "keluhan": "Keluh Kesah Biasa",
+      "id": 23
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

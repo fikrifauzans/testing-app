@@ -1,0 +1,73 @@
+<mat-toolbar color="primary">
+    <span>Customer Queue Management</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+<form action="" [formGroup]="visitorForm" (ngSubmit)="onFormSubmit()" class="container-form">
+    <div class="container-title">
+        <h1>Form Register Visitor</h1>
+        <div>
+            <button mat-raised-button type="button" (click)="backToVisitorList()">Back</button>
+        </div>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Ex. Fikri Fauzan" formControlName="name">
+            <mat-hint>Ex. Fikri Fauzan</mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Age</mat-label>
+            <input matInput placeholder="Ex. 24" type="number" formControlName="age">
+            <mat-hint>Ex. 24</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date_of_birth">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Ex. Jalan Dagopojok" formControlName="address"></textarea>
+            <mat-hint>Ex. Jalan Dagopojok</mat-hint>
+        </mat-form-field>
+    </div>
+
+    <div class="row gender-container">
+        <mat-radio-group color="primary" aria-label="Select an option" formControlName="gender">
+            <mat-label style="margin-right: 10px;">Gender</mat-label>
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Famale">Famale</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="row ">
+        <mat-form-field appearance="outline">
+            <mat-label>Section</mat-label>
+            <mat-select formControlName="section">
+                <mat-option *ngFor="let val of hospitalSection" [value]="val">
+                    {{val}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Keluhan</mat-label>
+            <textarea matInput placeholder="Ex. Ex. Mengalami sakit kepala" formControlName="keluhan"></textarea>
+            <mat-hint>Ex. Mengalami sakit kepala</mat-hint>
+        </mat-form-field>
+    </div>
+
+    <div class="container-btn">
+        <div>
+            <button mat-raised-button type="submit" color="primary">
+                Add Data
+            </button>
+        </div>
+    </div>
+</form>

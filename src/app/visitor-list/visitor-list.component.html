@@ -1,0 +1,125 @@
+<mat-toolbar color="primary">
+    <span>Customer Queue Management</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="goToFormPage()">
+        Add Visitor
+    </button>
+</mat-toolbar>
+
+<mat-tab-group mat-stretch-tabs="false " #tabGroup (focusChange)="tabChanged($event)" mat-align-tabs="start">
+    <mat-tab value="waiting" label="Waiting"></mat-tab>
+    <mat-tab value="done" label="Done"></mat-tab>
+    <mat-tab value="Cancel" label="Cancel"></mat-tab>
+</mat-tab-group>
+
+
+
+
+<div class="container-list container-card ">
+    <mat-card>
+        <mat-card-title>
+            <div>Dalam Ruang Periksa</div>
+        </mat-card-title>
+        <mat-card-content>
+            <div *ngIf="onRoom">Saat Ini Dalam ruang periksa adalah bapak/ibu {{onRoom.name}} dengan antrian nomor
+                <b>
+                    A-{{onRoom.antrean}}
+                </b>
+            </div>
+            <div *ngIf="!onRoom">Saat Ini tidak ada pasien yang diperiksa</div>
+        </mat-card-content>
+        <mat-card-actions >
+            <button  *ngIf="waitings.length > 0 || onRoom" mat-button color="primary" (click)="nextAndNewQueue()">Selesai & Antrean Selanjutnya</button>
+            <button *ngIf="onRoom" mat-button color="warn" (click)="cancelQueue()" >Batal</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="mat-elevation-z1 container-list">
+
+
+
+    <mat-form-field appearance="outline" style="margin-left: 20px;margin-top: 15px;">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row._id}} </td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
+            <td mat-cell *matCellDef="let row"> {{row.name}}% </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.age}} </td>
+        </ng-container>
+
+        <!-- Date Of Birth Column -->
+        <ng-container matColumnDef="date_of_birth">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Of Birth </th>
+            <td mat-cell *matCellDef="let row"> {{row.date_of_birth}} </td>
+        </ng-container>
+
+        <!-- Adress Column -->
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+            <td mat-cell *matCellDef="let row"> {{row.address}} </td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="keluhan">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> keluhan </th>
+            <td mat-cell *matCellDef="let row"> {{row.keluhan}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> gender </th>
+            <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
+        </ng-container>
+        <ng-container matColumnDef="section">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> section </th>
+            <td mat-cell *matCellDef="let row"> {{row.section}} </td>
+        </ng-container>
+        <ng-container matColumnDef="antrean">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Queue </th>
+            <td mat-cell *matCellDef="let row"> A-{{row.antrean}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="warn">
+                    <mat-icon (click)="deleteVisitor(row._id)">delete</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" (click)="openEditVisitor(row)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
